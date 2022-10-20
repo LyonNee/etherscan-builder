@@ -16,7 +16,7 @@ type Builder struct {
 	urlbuf *strings.Builder
 }
 
-func New(network network.NetworkEnum, module module.ModuleEnum) *AccountBuilder {
+func New(network network.NetworkEnum, module module.ModuleEnum) *Builder {
 	urlbuf := strings.Builder{}
 	urlbuf.WriteString(string(network))
 
@@ -24,7 +24,7 @@ func New(network network.NetworkEnum, module module.ModuleEnum) *AccountBuilder 
 	urlbuf.WriteString("?module=")
 	urlbuf.WriteString(string(module))
 
-	return &AccountBuilder{&urlbuf}
+	return &Builder{&urlbuf}
 }
 
 func (builder *Builder) Build(apiKey string) string {
